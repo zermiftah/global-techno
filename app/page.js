@@ -40,12 +40,12 @@ const PORTFOLIO_HOME = [
     desc: 'All-in-one banking super app: payments, lifestyle, and BTN community module.',
   },
   {
-    title: 'Xpedius',
+    title: 'FEMS',
     mockup: 'pc',
-    tags: ['Web', 'AI'],
+    tags: ['Web', 'IoT'],
     color: '#2c4a2a',
-    img: '/assets/xpedius.png',
-    desc: 'AI-powered medical CMS with Google Dialogflow voice-to-text for doctor reports.',
+    img: '/assets/fems.png',
+    desc: 'Real-time electrical panel metrics KWH, KVA, APM, and Voltage Line-to-Line. Centralized oversight across all factories and individual rooms within each plant.',
   },
 ]
 
