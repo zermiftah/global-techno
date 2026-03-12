@@ -99,11 +99,13 @@ export default function HomePage() {
       {/* SPLASH */}
       <div id="splash" className={splashDone ? 'hide' : ''}>
         <div className="splash-logo" style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ width: 48, height: 48, background: 'var(--red-mid)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: 'white', fontWeight: 800, fontSize: 18, fontFamily: 'Plus Jakarta Sans,sans-serif' }}>GT</span>
+          <div style={{ width: 90, height: 48, background: 'var(--black-mid)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <img src="/assets/logo.png" alt="GlobalTechno" style={{ height: 120, width: 'auto', objectFit: 'contain' }} />
           </div>
           <div>
-            <div style={{ color: 'white', fontFamily: 'Fraunces,serif', fontWeight: 600, fontSize: 24, lineHeight: 1 }}>GlobalTechno</div>
+            <div style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 17, color: 'white', lineHeight: 1.1 }}>
+              Global<span style={{ color: 'var(--red-mid)' }}>Techno</span>
+            </div>
             <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 9, letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 4 }}>PT Penghubung Teknologi Global</div>
           </div>
         </div>
