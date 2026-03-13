@@ -198,3 +198,152 @@ a { text-decoration: none; }
   transition: color 0.2s;
 }
 .marquee-item:hover { color: var(--ink); }
+
+/* ══════════════════════════════════════════════
+   HOME PAGE — Layout & Responsive
+   ══════════════════════════════════════════════ */
+
+/* Base section padding */
+.section-pad { padding: 88px 56px; }
+.section-dark { background: var(--ink); }
+
+/* Hero */
+.hero-section {
+  min-height: 100vh;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+}
+.hero-bg-circle {
+  position: absolute; top: -120px; right: -120px;
+  width: 700px; height: 700px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(158,32,32,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-bg-grid {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 72px 72px; opacity: 0.35; pointer-events: none;
+}
+.hero-bg-ellipse {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+  background: white; clip-path: ellipse(58% 100% at 50% 100%);
+  pointer-events: none;
+}
+.hero-inner {
+  width: 100%;
+  padding: 80px 56px 120px;
+  position: relative;
+}
+.hero-g {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 100%;
+}
+.hero-stats {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+.hero-mockup-wrap { position: relative; }
+.hero-badge {
+  position: absolute;
+  bottom: -12px; left: -12px;
+  background: white;
+  border-radius: 14px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 28px rgba(26,20,16,0.1);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Featured card */
+.featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--cream);
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.featured-card-text { padding: 44px; }
+.featured-card-img {
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Portfolio mini grid */
+.portfolio-mini-g {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Services grid */
+.svc-g {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* Process grid */
+.proc-g {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════ */
+
+/* Tablet landscape */
+@media (max-width: 1100px) {
+  .svc-g          { grid-template-columns: repeat(2, 1fr) !important; }
+  .proc-g         { grid-template-columns: repeat(3, 1fr) !important; }
+  .portfolio-mini-g { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* Tablet portrait */
+@media (max-width: 900px) {
+  .hero-g         { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .featured-card  { grid-template-columns: 1fr !important; }
+  .featured-card-img { min-height: 260px; padding: 24px; }
+  .hero-inner     { padding: 60px 32px 100px !important; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section-pad      { padding: 64px 20px !important; }
+  .hero-inner       { padding: 48px 20px 88px !important; }
+  .hero-g           { gap: 32px !important; }
+  .hero-badge       { display: none !important; }
+  .hero-stats       { gap: 20px !important; }
+  .hero-stats > div { flex: 1 1 calc(50% - 10px); min-width: 70px; }
+  .svc-g            { grid-template-columns: 1fr !important; }
+  .proc-g           { grid-template-columns: repeat(2, 1fr) !important; }
+  .portfolio-mini-g { grid-template-columns: 1fr !important; }
+  .featured-card    { grid-template-columns: 1fr !important; }
+  .featured-card-text { padding: 24px 20px !important; }
+  .featured-card-img  { padding: 20px !important; min-height: 220px; }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .proc-g    { grid-template-columns: 1fr 1fr !important; }
+  .hero-stats { gap: 16px !important; }
+}

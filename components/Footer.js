@@ -42,7 +42,6 @@ export default function Footer() {
 
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
         <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>© {new Date().getFullYear()} PT Penghubung Teknologi Global. All rights reserved.</span>
-        <span style={{ fontSize: 12, color: 'rgba(255,255,255,0.2)' }}>Crafted with care in Bandung 🇮🇩</span>
       </div>
 
       <style>{`

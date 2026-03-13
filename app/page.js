@@ -117,16 +117,17 @@ export default function HomePage() {
       </div>
 
       {/* ── HERO ── */}
-      <section style={{ minHeight: '100vh', background: 'var(--cream)', position: 'relative', overflow: 'hidden', display: 'flex', alignItems: 'center', paddingTop: 80 }}>
-        <div style={{ position: 'absolute', top: -120, right: -120, width: 700, height: 700, borderRadius: '50%', background: 'radial-gradient(circle,rgba(158,32,32,0.07) 0%,transparent 65%)', pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px)', backgroundSize: '72px 72px', opacity: 0.35, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 120, background: 'white', clipPath: 'ellipse(58% 100% at 50% 100%)', pointerEvents: 'none' }} />
+      <section className="hero-section">
+        <div className="hero-bg-circle" />
+        <div className="hero-bg-grid" />
+        <div className="hero-bg-ellipse" />
 
-        <div style={{ width: '100%', padding: '80px 56px 120px', position: 'relative' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'center', maxWidth: '100%' }} className="hero-g">
+        <div className="hero-inner">
+          <div className="hero-g">
+            {/* Left col */}
             <div>
               <div className="section-label reveal" style={{ marginBottom: 18 }}>Software Development Studio</div>
-              <h1 className="reveal d1" style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 'clamp(36px,4.5vw,64px)', lineHeight: 1.06, color: 'var(--ink)', marginBottom: 22 }}>
+              <h1 className="reveal d1" style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 'clamp(32px,5vw,64px)', lineHeight: 1.06, color: 'var(--ink)', marginBottom: 22 }}>
                 Transforming<br />your <em style={{ fontStyle: 'italic', color: 'var(--red-mid)' }}>Ideas</em> into<br />Innovative Reality
               </h1>
               <p className="reveal d2" style={{ color: 'var(--muted)', fontSize: 15.5, lineHeight: 1.8, maxWidth: 480, marginBottom: 32 }}>
@@ -136,7 +137,7 @@ export default function HomePage() {
                 <Link href="/portfolio" className="btn-primary">See Our Work →</Link>
                 <Link href="/contact" className="btn-outline">Let's Collaborate</Link>
               </div>
-              <div className="reveal d4" style={{ display: 'flex', gap: 36, flexWrap: 'wrap' }}>
+              <div className="reveal d4 hero-stats">
                 {STATS.map((s, i) => (
                   <div key={i}>
                     <div style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 30, color: 'var(--ink)' }}>{s.value}</div>
@@ -146,7 +147,8 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="reveal-right" style={{ position: 'relative' }}>
+            {/* Right col — dashboard mockup */}
+            <div className="reveal-right hero-mockup-wrap">
               <div className="float-a" style={{ maxWidth: 500, margin: '0 auto', background: 'white', borderRadius: 24, boxShadow: '0 32px 80px rgba(26,20,16,0.11),0 0 0 1px var(--border)', overflow: 'hidden' }}>
                 <div style={{ background: 'var(--ink)', padding: '12px 18px', display: 'flex', alignItems: 'center', gap: 8 }}>
                   <div style={{ width: 10, height: 10, borderRadius: '50%', background: '#ff5f57' }} />
@@ -178,7 +180,8 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="float-b" style={{ position: 'absolute', bottom: -12, left: -12, background: 'white', borderRadius: 14, padding: '10px 14px', boxShadow: '0 8px 28px rgba(26,20,16,0.1)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 10 }}>
+              {/* Badge — hide on very small screens via CSS */}
+              <div className="hero-badge float-b">
                 <div style={{ width: 32, height: 32, background: 'var(--red-soft)', borderRadius: 9, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14 }}>✓</div>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 11, color: 'var(--ink)' }}>On-time delivery</div>
@@ -203,7 +206,7 @@ export default function HomePage() {
       </section>
 
       {/* FEATURED WORK */}
-      <section style={{ background: 'white', padding: '88px 56px' }}>
+      <section className="section-pad">
         <div style={{ marginBottom: 48, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: 16 }}>
           <div>
             <div className="section-label reveal" style={{ marginBottom: 12 }}>Featured Work</div>
@@ -213,14 +216,14 @@ export default function HomePage() {
         </div>
 
         {/* Featured card */}
-        <div className="reveal" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', background: 'var(--cream)', borderRadius: 24, border: '1px solid var(--border)', overflow: 'hidden', marginBottom: 32 }}>
-          <div style={{ padding: '44px' }}>
+        <div className="reveal featured-card">
+          <div className="featured-card-text">
             <div style={{ display: 'flex', gap: 8, marginBottom: 18, flexWrap: 'wrap' }}>
               {['Mobile', 'Web', 'SaaS', 'Design'].map((t, i) => (
                 <span key={t} className={`chip ${i === 0 ? 'chip-ink' : i === 2 ? 'chip-red' : 'chip-warm'}`}>{t}</span>
               ))}
             </div>
-            <h3 style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 26, color: 'var(--ink)', marginBottom: 14 }}>Smart Hotel System</h3>
+            <h3 style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 'clamp(20px,2.5vw,26px)', color: 'var(--ink)', marginBottom: 14 }}>Smart Hotel System</h3>
             <p style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.8, marginBottom: 20 }}>Centralized hotel operations platform, task assignment, staff scheduling, season calendar, and a mobile app with face recognition clock-in. Real-time sync across all departments.</p>
             <div style={{ background: 'white', borderRadius: 12, padding: '14px 18px', border: '1px solid var(--border)', marginBottom: 20 }}>
               <div style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.1em', color: 'var(--muted)', marginBottom: 7 }}>SERVICES</div>
@@ -233,22 +236,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div style={{ background: 'var(--cream)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '36px', position: 'relative', overflow: 'hidden' }}>
+          <div className="featured-card-img">
             <ImgBoxPC src="/assets/hotel1.png" alt="Smart Hotel System screenshot" theme="dark" width="100%" />
           </div>
         </div>
 
         {/* Mini grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20 }}>
+        <div className="portfolio-mini-g">
           {PORTFOLIO_HOME.slice(1).map((p, i) => (
             <div key={i} className="card" style={{ display: 'flex', flexDirection: 'column' }}>
               {p.mockup === 'mobile' ? (
-                <div style={{ background: 'var(--cream)', borderRadius: '20px 20px 0 0', padding: '24px 16px 8px', display: 'flex', justifyContent: 'center', minHeight: 280 }}>
+                <div style={{ background: 'var(--cream)', borderRadius: '20px 20px 0 0', padding: '24px 16px 8px', display: 'flex', justifyContent: 'center', minHeight: 240 }}>
                   <ImgBoxMobile
                     src={p.img}
                     alt={`${p.title} screenshot`}
                     theme="dark"
-                    width={160}
+                    width={140}
                     align="center"
                   />
                 </div>
@@ -274,7 +277,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section style={{ background: 'var(--ink)', padding: '88px 56px', position: 'relative', overflow: 'hidden' }}>
+      <section className="section-pad section-dark" style={{ position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 72, background: 'white', clipPath: 'ellipse(55% 100% at 50% 0%)' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 72, background: 'var(--cream)', clipPath: 'ellipse(55% 100% at 50% 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'radial-gradient(circle at 2px 2px,rgba(255,255,255,0.03) 1px,transparent 0)', backgroundSize: '44px 44px' }} />
@@ -288,7 +291,7 @@ export default function HomePage() {
               Get all services →
             </Link>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }} className="svc-g">
+          <div className="svc-g">
             {SERVICES_HOME.map((s, i) => (
               <Link key={i} href={s.href} className={`reveal d${i + 1} svc-card-link`}>
                 <div style={{ fontSize: 22, marginBottom: 14, width: 46, height: 46, background: 'rgba(158,32,32,0.25)', borderRadius: 11, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'monospace', color: 'rgba(255,255,255,0.7)' }}>{s.icon}</div>
@@ -301,8 +304,8 @@ export default function HomePage() {
       </section>
 
       {/* WHY US + STATS */}
-      <section style={{ background: 'var(--cream)', padding: '88px 56px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 72, alignItems: 'center' }} className="hero-g">
+      <section className="section-pad" style={{ background: 'var(--cream)' }}>
+        <div className="hero-g">
           <div className="reveal-left" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
             {STATS.map((s, i) => (
               <div key={i} style={{ background: 'white', borderRadius: 20, padding: '28px 22px', border: '1px solid var(--border)', textAlign: 'center' }}>
@@ -331,15 +334,14 @@ export default function HomePage() {
       </section>
 
       {/* HOW WE WORK */}
-      <section style={{ background: 'white', padding: '88px 56px' }}>
+      <section className="section-pad" style={{ background: 'white' }}>
         <div style={{ textAlign: 'center', marginBottom: 52 }}>
           <div className="section-label reveal" style={{ justifyContent: 'center', marginBottom: 12 }}>Our Process</div>
           <h2 className="reveal d1" style={{ fontFamily: 'Fraunces,serif', fontWeight: 700, fontSize: 'clamp(26px,3vw,44px)', color: 'var(--ink)', lineHeight: 1.1 }}>How We Work</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', gap: 14 }} className="proc-g">
+        <div className="proc-g">
           {PROCESS.map((p, i) => (
             <div key={i} className={`arch-card reveal d${i + 1}`} style={{ background: p.bg, border: 'none' }}>
-              {/* Step number */}
               <div style={{
                 fontFamily: 'Plus Jakarta Sans,sans-serif', fontWeight: 800, fontSize: 12,
                 color: p.light ? 'rgba(255,255,255,0.5)' : 'var(--red-mid)',
@@ -362,7 +364,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA */}
-      <section style={{ background: 'var(--ink)', padding: '88px 56px', position: 'relative', overflow: 'hidden' }}>
+      <section className="section-pad section-dark" style={{ position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: 560, height: 560, borderRadius: '50%', background: 'radial-gradient(circle,rgba(158,32,32,0.18) 0%,transparent 70%)', pointerEvents: 'none' }} />
         <div style={{ maxWidth: 640, margin: '0 auto', textAlign: 'center', position: 'relative' }}>
           <div className="section-label reveal" style={{ justifyContent: 'center', color: 'rgba(255,255,255,0.3)', marginBottom: 16 }}>Let's work together</div>
@@ -383,22 +385,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <style>{`
-        .hero-g { }
-        .svc-g { }
-        @media (max-width: 1100px) {
-          .svc-g { grid-template-columns: repeat(2,1fr) !important; }
-          .proc-g { grid-template-columns: repeat(3,1fr) !important; }
-        }
-        @media (max-width: 900px) {
-          .hero-g { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 768px) {
-          .svc-g { grid-template-columns: 1fr !important; }
-          .proc-g { grid-template-columns: repeat(2,1fr) !important; }
-          section { padding-left: 24px !important; padding-right: 24px !important; }
-        }
-      `}</style>
+
     </>
   )
 }

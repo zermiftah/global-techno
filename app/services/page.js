@@ -187,7 +187,7 @@ export default function ServicesPage() {
       <section style={{background:'white',padding:'80px 56px'}}>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:24}} className="svc-g">
           {SERVICES.map((s,i) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className={`svc-card-new reveal d${(i%3)+1}`}>
+            <div key={s.slug} className={`svc-card-new reveal d${(i%3)+1}`}>
               <div className="svc-icon-wrap">
                 <SvcIcon slug={s.slug} />
               </div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
